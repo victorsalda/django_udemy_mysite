@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.messages', # framework form messages.
     'django.contrib.staticfiles', # framework for statics files.
     'blog',
+    'taggit',
 )
 
 MIDDLEWARE_CLASSES = (

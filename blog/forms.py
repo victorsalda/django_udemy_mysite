@@ -25,9 +25,15 @@ end-to-end working collection of these parts. """
 
 
 from django import forms
+from .models import Comment
 
 class EmailPostForm(forms.Form): # for
     name = forms.CharField(max_length=25) # form’s fields are themselves classes; they manage form data and perform validation when a form is submitted
     email = forms.EmailField()
     to = forms.EmailField()
     comments = forms.CharField(required=False, widget=forms.Textarea) # this field is optional.
+
+class CommentForm(forms.ModelForm):  # we are creating a form from a model. So we need to indicate which model.
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'body') # fields of the forms.
