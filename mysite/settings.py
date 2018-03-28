@@ -45,6 +45,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles', # framework for statics files.
     'blog',
     'taggit',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'haystack',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -163,3 +166,16 @@ EMAIL_HOST_PASSWORD = 'vicsal20'
 EMAIL_PORT = 587
 
 EMAIL_USE_TLS = True
+
+
+# setting the haystack. Haystack provides modular search for Django.
+# It features a unified, familiar API that allows you to plug in
+# different search backends (such as Solr, Elasticsearch, Whoosh,
+# Xapian, etc.) without having to modify your code.
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr/blog'
+    },
+}

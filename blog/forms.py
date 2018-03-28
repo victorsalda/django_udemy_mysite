@@ -37,3 +37,6 @@ class CommentForm(forms.ModelForm):  # we are creating a form from a model. So w
     class Meta:
         model = Comment
         fields = ('name', 'email', 'body') # fields of the forms.
+
+class SearchForm (forms.Form):
+    query = forms.CharField()
